@@ -12,21 +12,21 @@
   "volumes": {
     "upper": {
       "title": "生物化学（上册）",
-      "file": "books/biochemistry-upper.pdf",
+      "file": "books/生物化学(上册) (昌增益, 施一公, 王新泉) .pdf",
       "pages": 654,
       "printed_offset": 17,
       "bytes": 339066720,
       "sha256": "0d1b615475044c457e9c0db766d2f8ec922baca5b5c39f97e8a0e7b30a7f7ae5",
-      "download_url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/biochemistry-upper.pdf"
+      "download_url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/%E7%94%9F%E7%89%A9%E5%8C%96%E5%AD%A6%28%E4%B8%8A%E5%86%8C%29%20%28%E6%98%8C%E5%A2%9E%E7%9B%8A%2C%20%E6%96%BD%E4%B8%80%E5%85%AC%2C%20%E7%8E%8B%E6%96%B0%E6%B3%89%29%20.pdf"
     },
     "lower": {
       "title": "生物化学（下册）",
-      "file": "books/biochemistry-lower.pdf",
+      "file": "books/生物化学(下册) (昌增益, 施一公, 王新泉) .pdf",
       "pages": 587,
       "printed_offset": 17,
       "bytes": 221643678,
       "sha256": "0d937c719970e74b25f98040b0d2c4a24cd300835b04b4554d15960c77bb16f9",
-      "download_url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/biochemistry-lower.pdf"
+      "download_url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/%E7%94%9F%E7%89%A9%E5%8C%96%E5%AD%A6%28%E4%B8%8B%E5%86%8C%29%20%28%E6%98%8C%E5%A2%9E%E7%9B%8A%2C%20%E6%96%BD%E4%B8%80%E5%85%AC%2C%20%E7%8E%8B%E6%96%B0%E6%B3%89%29%20.pdf"
     }
   }
 }

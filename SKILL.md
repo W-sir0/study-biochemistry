@@ -11,7 +11,7 @@ description: 结合“101 计划”核心教材·生物科学领域、昌增益�
 
 脚本路径相对于此技能目录。先读 [阅读导航](references/reading-map.md)，按主题选章；机器可读目录为 `references/chapters.json`，文件校验信息为 `references/books.json`。
 
-- 默认 PDF 在 `books/biochemistry-upper.pdf` 和 `books/biochemistry-lower.pdf`。用户指定文件时使用 `--pdf`；已有原始文件无需重复下载。
+- 默认 PDF 在 `books/生物化学(上册) (昌增益, 施一公, 王新泉) .pdf` 和 `books/生物化学(下册) (昌增益, 施一公, 王新泉) .pdf`。用户指定文件时使用 `--pdf`；已有原始文件无需重复下载。
 - 未下载时可用 `python3 scripts/book.py fetch --volume upper`，下册改为 `lower`；此操作从本仓库公开 Release 下载并核对 SHA-256，不上传本地资料。下载失败时使用用户提供的文件，不编造已读内容。
 - `python3 scripts/book.py inspect --volume upper` 检查页数和文字层；`toc` 查看章节范围。
 - `python3 scripts/book.py search --volume upper --chapter 4 --term 米氏 --term Michaelis` 定位候选页。多个关键词为“或”；只返回少量片段，不能当成完整上下文。

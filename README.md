@@ -8,10 +8,10 @@
 
 完整原始 PDF 放在 [v1.0.0 Release](https://github.com/W-sir0/study-biochemistry/releases/tag/v1.0.0)，未压缩或删页。普通 GitHub 仓库阻止超过 100 MiB 的文件，Release 单附件可小于 2 GiB，见 [GitHub 官方说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
 
-- [上册 PDF](https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/biochemistry-upper.pdf)
-- [下册 PDF](https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/biochemistry-lower.pdf)
+- [上册 PDF](https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/%E7%94%9F%E7%89%A9%E5%8C%96%E5%AD%A6%28%E4%B8%8A%E5%86%8C%29%20%28%E6%98%8C%E5%A2%9E%E7%9B%8A%2C%20%E6%96%BD%E4%B8%80%E5%85%AC%2C%20%E7%8E%8B%E6%96%B0%E6%B3%89%29%20.pdf)
+- [下册 PDF](https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/%E7%94%9F%E7%89%A9%E5%8C%96%E5%AD%A6%28%E4%B8%8B%E5%86%8C%29%20%28%E6%98%8C%E5%A2%9E%E7%9B%8A%2C%20%E6%96%BD%E4%B8%80%E5%85%AC%2C%20%E7%8E%8B%E6%96%B0%E6%B3%89%29%20.pdf)
 
-下载后分别放到 `books/biochemistry-upper.pdf` 和 `books/biochemistry-lower.pdf`。也可在技能目录运行：
+下载后分别放到 `books/生物化学(上册) (昌增益, 施一公, 王新泉) .pdf` 和 `books/生物化学(下册) (昌增益, 施一公, 王新泉) .pdf`。也可在技能目录运行：
 
 ```bash
 python3 scripts/book.py fetch --volume all
