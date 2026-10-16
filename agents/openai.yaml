@@ -1,4 +1,4 @@
 interface:
-  display_name: "生物化学学习"
+  display_name: "生物化学学习 · 101 计划"
   short_description: "结合上下册原始书页，检索章节、讲解概念、比较代谢通路并复习自测"
   default_prompt: "使用 $study-biochemistry 结合教材书页讲解我的问题，并标注册次、章节和页码。"
