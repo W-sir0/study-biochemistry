@@ -6,18 +6,24 @@
 
 ## 获取 PDF
 
-完整原始 PDF 放在 [v1.0.0 Release](https://github.com/W-sir0/study-biochemistry/releases/tag/v1.0.0)，未压缩或删页。普通 GitHub 仓库阻止超过 100 MiB 的文件，Release 单附件可小于 2 GiB，见 [GitHub 官方说明](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)。
+若 Release 暂不可下载，表示该版本尚未发布；已有本地教材时仍可使用阅读、检索和渲染功能。
 
-- [上册 PDF](https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/%E7%94%9F%E7%89%A9%E5%8C%96%E5%AD%A6%28%E4%B8%8A%E5%86%8C%29%20%28%E6%98%8C%E5%A2%9E%E7%9B%8A%2C%20%E6%96%BD%E4%B8%80%E5%85%AC%2C%20%E7%8E%8B%E6%96%B0%E6%B3%89%29%20.pdf)
-- [下册 PDF](https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/%E7%94%9F%E7%89%A9%E5%8C%96%E5%AD%A6%28%E4%B8%8B%E5%86%8C%29%20%28%E6%98%8C%E5%A2%9E%E7%9B%8A%2C%20%E6%96%BD%E4%B8%80%E5%85%AC%2C%20%E7%8E%8B%E6%96%B0%E6%B3%89%29%20.pdf)
+教材采用 [v1.0.0 Release](https://github.com/W-sir0/study-biochemistry/releases/tag/v1.0.0) 的 9 个压缩分卷（每卷最多 64 MiB）分发，文件名为 `101.zip.001` 至 `101.zip.009`。GitHub 会清理部分附件文件名，因此用压缩包保留两册 PDF 的原始中文名称、作者姓名、空格和内容。
 
-下载后分别放到 `books/生物化学(上册) (昌增益, 施一公, 王新泉) .pdf` 和 `books/生物化学(下册) (昌增益, 施一公, 王新泉) .pdf`。也可在技能目录运行：
+在技能目录运行以下命令，脚本会下载各卷、逐卷核验 SHA-256、合并压缩包，再恢复原名 PDF 到 `books/`：
 
 ```bash
 python3 scripts/book.py fetch --volume all
 ```
 
-下载脚本核对文件大小与 SHA-256，原始信息见 [books.json](references/books.json)。若已有本地教材，可用 `--pdf "/你的路径/教材.pdf"`，无需再次下载。
+中断后可重试，已经下载且校验通过的分卷会复用。分卷缓存保留在 `.cache/`，两册恢复成功后可自行删除缓存以释放空间。
+
+也可手动下载全部 9 卷，按序拼接为 `101.zip` 后解压。包内文件名为：
+
+- `生物化学(上册) (昌增益, 施一公, 王新泉) .pdf`
+- `生物化学(下册) (昌增益, 施一公, 王新泉) .pdf`
+
+PDF 校验信息见 [books.json](references/books.json)，分卷及完整压缩包校验信息见 [archive.json](references/archive.json)。已有本地教材时可使用 `--pdf "/你的路径/教材.pdf"`，无需下载。
 
 ## 安装与使用
 

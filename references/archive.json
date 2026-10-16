@@ -1,0 +1,61 @@
+{
+  "filename": "101.zip",
+  "bytes": 560710808,
+  "sha256": "6ef2ea5ac661427d3d5ba55ed36defe9a0b851b803569fdb6f910e0fd727b6c1",
+  "parts": [
+    {
+      "name": "101.zip.001",
+      "bytes": 67108864,
+      "sha256": "894a0e34b3b11e45d1d863aafb11bc7ef886d3a7f14e7ccb233e8146018ffee3",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.001"
+    },
+    {
+      "name": "101.zip.002",
+      "bytes": 67108864,
+      "sha256": "04243e67152567b29cd36a699f239f307addd53288d18bb8d9f77f9ecf80e01d",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.002"
+    },
+    {
+      "name": "101.zip.003",
+      "bytes": 67108864,
+      "sha256": "ac66dd9de3f19547d1d5d39d3cb6088296cbdbfddca50d16e98d217067947ac4",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.003"
+    },
+    {
+      "name": "101.zip.004",
+      "bytes": 67108864,
+      "sha256": "a59c1e92d3fb46dc190712bd17aeed0d36349229804e36894d857a6992a29ee8",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.004"
+    },
+    {
+      "name": "101.zip.005",
+      "bytes": 67108864,
+      "sha256": "b7d167630936a19be24b8beae7c49417629144855994e2fc79efd17a305189d9",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.005"
+    },
+    {
+      "name": "101.zip.006",
+      "bytes": 67108864,
+      "sha256": "57f2a8a61deb0a9699ef0ab24ef2a25432bc1e791e9e13907b84f059cbdfded9",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.006"
+    },
+    {
+      "name": "101.zip.007",
+      "bytes": 67108864,
+      "sha256": "0f5298756f8fbd27765fb4a17d8228cb5f5eeea25652eee22a7fb003f1ba5226",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.007"
+    },
+    {
+      "name": "101.zip.008",
+      "bytes": 67108864,
+      "sha256": "4f6a636451cd36a5634489cfd9784b1ef99ff54eb72e17989809bd5bd9d4b1fb",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.008"
+    },
+    {
+      "name": "101.zip.009",
+      "bytes": 23839896,
+      "sha256": "10a36df2a9333ca9e173787f63ec3f187e4c94034a98ee1acc859db0caf2ab07",
+      "url": "https://github.com/W-sir0/study-biochemistry/releases/download/v1.0.0/101.zip.009"
+    }
+  ]
+}

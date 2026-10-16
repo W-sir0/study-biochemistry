@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.request
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -64,7 +65,9 @@ def digest(p):
 
 
 def fetch(volume):
-    for v in (BOOKS if volume == 'all' else [volume]):
+    selected = list(BOOKS) if volume == 'all' else [volume]
+    missing = []
+    for v in selected:
         b = BOOKS[v]
         dest = ROOT / b['file']
         if dest.exists():
@@ -72,21 +75,60 @@ def fetch(volume):
                 print(f'{v}: 已存在且校验通过')
                 continue
             raise ValueError(f'{dest} 已存在但校验不符；保留原文件，请移开后重试。')
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        temp = None
+        missing.append(v)
+    if not missing:
+        return
+    archive = json.loads((ROOT / 'references/archive.json').read_text(encoding='utf-8'))
+    cache = ROOT / '.cache'
+    cache.mkdir(exist_ok=True)
+    for part in archive['parts']:
+        dest = cache / part['name']
+        if dest.exists() and dest.stat().st_size == part['bytes'] and digest(dest) == part['sha256']:
+            print(f'{part["name"]}: 使用已校验的缓存', flush=True)
+            continue
+        temp = dest.with_suffix(dest.suffix + '.part')
         try:
-            with tempfile.NamedTemporaryFile(dir=dest.parent, suffix='.part', delete=False) as out:
-                temp = Path(out.name)
-                req = urllib.request.Request(b['download_url'], headers={'User-Agent': 'study-biochemistry/1.0'})
+            print(f'{part["name"]}: 下载中', flush=True)
+            with temp.open('wb') as out:
+                req = urllib.request.Request(part['url'], headers={'User-Agent': 'study-biochemistry/1.0'})
                 with urllib.request.urlopen(req, timeout=60) as response:
                     shutil.copyfileobj(response, out, 1024 * 1024)
-            if temp.stat().st_size != b['bytes'] or digest(temp) != b['sha256']:
-                raise ValueError(f'{v}: 下载文件大小或 SHA-256 不匹配。')
+            if temp.stat().st_size != part['bytes'] or digest(temp) != part['sha256']:
+                raise ValueError(f'{part["name"]}: 大小或 SHA-256 不匹配。')
             temp.replace(dest)
-            print(f'{v}: 下载并校验通过，{dest}')
         finally:
-            if temp is not None:
-                temp.unlink(missing_ok=True)
+            temp.unlink(missing_ok=True)
+    combined = cache / archive['filename']
+    temp = combined.with_suffix('.assembling')
+    try:
+        with temp.open('wb') as out:
+            for part in archive['parts']:
+                with (cache / part['name']).open('rb') as inp:
+                    shutil.copyfileobj(inp, out, 1024 * 1024)
+        if temp.stat().st_size != archive['bytes'] or digest(temp) != archive['sha256']:
+            raise ValueError('合并后的压缩包校验不匹配。')
+        temp.replace(combined)
+        with zipfile.ZipFile(combined) as z:
+            for v in missing:
+                b = BOOKS[v]
+                dest = ROOT / b['file']
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                # Open only the exact expected filename; never extract arbitrary paths.
+                with tempfile.NamedTemporaryFile(dir=dest.parent, suffix='.part', delete=False) as out:
+                    extracted = Path(out.name)
+                    try:
+                        with z.open(dest.name) as inp:
+                            shutil.copyfileobj(inp, out, 1024 * 1024)
+                        out.flush()
+                        if extracted.stat().st_size != b['bytes'] or digest(extracted) != b['sha256']:
+                            raise ValueError(f'{v}: PDF 校验不匹配。')
+                        extracted.replace(dest)
+                    finally:
+                        extracted.unlink(missing_ok=True)
+                print(f'{v}: 已恢复原名并校验通过，{dest}', flush=True)
+    finally:
+        temp.unlink(missing_ok=True)
+        combined.unlink(missing_ok=True)
 
 
 def main():
